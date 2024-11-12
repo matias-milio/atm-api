@@ -5,3 +5,6 @@
 /ATM.Api/.vs
 /ATM.Api/obj
 /ATM.Api/Properties
+/ATM.Core/obj
+/ATM.Infrastructure/obj
+/ATM.UseCases/obj

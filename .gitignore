@@ -8,3 +8,7 @@
 /ATM.Core/obj
 /ATM.Infrastructure/obj
 /ATM.UseCases/obj
+/ATM.Api/bin/Debug/net8.0
+/ATM.Core/bin/Debug/net8.0
+/ATM.Infrastructure/bin/Debug/net8.0
+/ATM.UseCases/bin/Debug/net8.0

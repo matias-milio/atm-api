@@ -1,15 +1,20 @@
 using ATM.Api.Configurations;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
 builder.Services.AddServiceConfigs(builder);
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Host.UseSerilog((context, configuration) =>
+    configuration.ReadFrom.Configuration(context.Configuration));
+
 var app = builder.Build();
 
+app.UseAuthorization();
 app.MapControllers();
 app.UseHttpsRedirection();
+app.UseRouting();
+app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.Run();

@@ -7,10 +7,16 @@ namespace ATM.Api.Configurations
     {
         public static IServiceCollection AddServiceConfigs(this IServiceCollection services, WebApplicationBuilder builder)
         {
-            services.Configure<CacheSettings>(builder.Configuration.GetSection("CacheSettings"));
+            services.AddControllers();
+            services.AddEndpointsApiExplorer();
+            services.AddAuthentication();
+            services.AddApiVersioning();
+            services.AddAuthenticationConfigs(builder.Configuration);
             services.AddInfrastructureServices(builder.Configuration);
             services.AddMediatrConfigs();
+            services.AddSwaggerConfigs();
             services.AddMemoryCache();
+            services.Configure<CacheSettings>(builder.Configuration.GetSection("CacheSettings"));
             return services;
         }
     }

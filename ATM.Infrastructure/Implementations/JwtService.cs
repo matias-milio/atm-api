@@ -7,28 +7,28 @@ using System.Text;
 
 namespace ATM.Infrastructure.Implementations
 {
-    public class JwtService : IJwtService
+    public class JwtService(IConfiguration configuration) : IJwtService
     {
 
-        private readonly IConfiguration _configuration;
-        public JwtService(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+        private readonly IConfiguration _configuration = configuration;
+
         public string GenerateToken(int cardHolderId)
         {
-            var claims = new[]
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_configuration["JwtTokenSecret"]);
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
-                 new Claim(JwtRegisteredClaimNames.Sub, cardHolderId.ToString())
+                Subject = new ClaimsIdentity(
+                [
+                     new Claim(JwtRegisteredClaimNames.Sub, cardHolderId.ToString())           
+                ]),
+                Expires = DateTime.UtcNow.AddHours(1),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+                Issuer = _configuration["Jwt:Issuer"], 
+                Audience = _configuration["Jwt:Audience"]
             };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtTokenSecret"]));
-            var creds = new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
-            var token = new JwtSecurityToken(
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
-                signingCredentials: creds
-            );
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
         }
     }
 }

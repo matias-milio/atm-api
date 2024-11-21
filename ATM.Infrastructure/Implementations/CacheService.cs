@@ -27,10 +27,6 @@ namespace ATM.Infrastructure.Implementations
         public void Set<T>(string key, T value) where T : class
         {
             _cache.Set(key, value);
-        }
-            
-        
-
-
+        }      
     }
 }

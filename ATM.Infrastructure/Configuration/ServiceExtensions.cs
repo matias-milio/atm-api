@@ -14,6 +14,7 @@ namespace ATM.Infrastructure.Configuration
             services.AddDbContext<AtmDbContext>(options =>
             {
                 options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+                options.EnableDetailedErrors();
             });
             services.AddScoped<IJwtService, JwtService>();
             services.AddScoped<ICacheService, CacheService>();

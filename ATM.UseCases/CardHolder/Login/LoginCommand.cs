@@ -5,10 +5,10 @@ namespace ATM.UseCases.CardHolder.Login
 {
     public class LoginCommand : IRequest<Result<string, Error>>
     {
-        public LoginCommand(string cardNumber, string PIN)
+        public LoginCommand(string cardNumber, string pin)
         {
             CardNumber = cardNumber;
-            PIN = PIN;
+            PIN = pin;
         }
 
         public string CardNumber { get; set; }

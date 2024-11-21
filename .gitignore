@@ -12,3 +12,17 @@
 /ATM.Core/bin/Debug/net8.0
 /ATM.Infrastructure/bin/Debug/net8.0
 /ATM.UseCases/bin/Debug/net8.0
+/.vs/ATM/DesignTimeBuild
+/.vs/ATM/FileContentIndex
+/.vs/ATM/v17
+/.vs/ATM.Api/v17
+/.vs/ProjectEvaluation
+/ATM.Api/Logs
+/ATM.Api/Dockerfile.original
+/ATM.Api/Dockerfile
+/ATM.Api/Program.cs
+/ATM.Api/ATM.Api.csproj.user
+/bin/Debug
+/obj
+/.dockerignore
+/.vs/ATM/config

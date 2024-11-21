@@ -26,3 +26,4 @@
 /obj
 /.dockerignore
 /.vs/ATM/config
+/ATM.Api/.dockerignore

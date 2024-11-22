@@ -11,7 +11,7 @@ namespace ATM.Api.RequestModels.Validators
                 .WithMessage("PIN is required.")
                 .Length(4)
                 .WithMessage("PIN must be 4 digits long.")
-                .Matches(@"^\d{16}$")
+                .Matches(@"^\d{4}$")
                 .WithMessage("PIN number must contain only digits.");
 
             RuleFor(model => model.CardNumber)

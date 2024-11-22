@@ -27,3 +27,6 @@
 /.dockerignore
 /.vs/ATM/config
 /ATM.Api/.dockerignore
+/ATM.Tests/bin/Debug/net8.0
+/ATM.Tests/ATM.Tests.csproj
+/ATM.Tests/obj

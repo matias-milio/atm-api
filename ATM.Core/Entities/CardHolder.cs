@@ -2,8 +2,8 @@
 {
     public class CardHolder : BaseEntity
     {
-        public required string Name { get; set; }
-        public required string PIN { get; set; }
-        public virtual required ICollection<Card> Cards { get; set; }
+        public string Name { get; set; }
+        public string PIN { get; set; }
+        public virtual ICollection<Card> Cards { get; set; }
     }   
 }

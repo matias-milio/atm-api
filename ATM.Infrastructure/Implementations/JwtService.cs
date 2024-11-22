@@ -15,7 +15,7 @@ namespace ATM.Infrastructure.Implementations
         public string GenerateToken(int cardHolderId)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["JwtTokenSecret"]);
+            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:TokenSecretKey"]);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(
